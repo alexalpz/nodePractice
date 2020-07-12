@@ -3,6 +3,9 @@ html {
   padding: 5%;
 }
 
+body {
+  border-radius: 10px;
+}
 
 header .h1 {
   color: rgb(192, 120, 164);
@@ -22,7 +25,8 @@ header .h1 {
   color: rgb(155, 95, 120);
 }
 
-p,h1 {
+p,
+h1 {
   color: rgb(153, 125, 151);
 }
 
@@ -37,7 +41,7 @@ select,
 textarea {
   width: 80%;
   padding: 12px;
-  border: 1px solid rgb(228, 79, 141);
+  border: 1px solid rgb(175, 170, 170);
   border-radius: 4px;
   resize: vertical;
 }
@@ -98,4 +102,54 @@ input[type=submit]:hover {
     width: 20%;
     margin-top: 0;
   }
+}
+
+
+/* Chat box css from codepen.io: https://codepen.io/muratcorlu/pen/KzmQEP?__cf_chl_jschl_tk__=8dc648f61d041cba5920610e8f946fde569f2eeb-1594519393-0-AatW3HXEXzEKNWjNuP_ueje3S8Iiea3UBEj3ZCNDN3mRCjdWrByo7CUSJn0Xpf593wzLyYI6oInQN_Z6t0yxKPjaguEK-bg-YCXsolnUKpuCgP3RXMycU83kqRXxXE3uYGSZjY6oCakiDhAoVUFhLS855gmLY1841V4JBPxIRt4npdbiMKp12LjRWGVNBMcbpBGhwH7DCwXKJJ53LEHcESxe71h7YIHvOhJqu4GSTrUdX_nvsRyCARix9G9Uox84fAYsFbOR469Q4jOj5aOcWP5CQ3WTrn9TPcz5AgxCOFsWhij2HR7FaRrKsTF4yduexMZwupf1662MjkmVYpdUJ6jonAnP2CZHpF1jfeA9h1xc */
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.chat-container {
+  height: 400px;
+  overflow: auto;
+  transform: rotate(180deg);
+  direction: rtl;
+}
+
+.message {
+  border-bottom: solid 1px #ccc;
+  padding: 20px;
+  transform: rotate(180deg);
+  direction: ltr;
+}
+
+.avatar {
+  float: left;
+  margin-right: 5px;
+}
+
+.datetime {
+  float: right;
+  color: #999;
+}
+
+.send-message-form input {
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  padding: 10px;
+}
+
+button {
+  display: none;
 }
