@@ -28,30 +28,21 @@
 
     <header>
         <h1 class="h1">Node.js test</h1>
-        <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link " href='index.html'>Home</a>
-
-                <a class="nav-item nav-link" href='reviews.html'>Reviews</a>
-
-                <a class="nav-item nav-link" href='people.html'>People</a>
-
-                <a class="nav-item nav-link active" href='chat.html'>Chat</a>
-            </div>
-        </nav>
+        <% include ../templates/nav %>
     </header>
 
     <div class="container">
         <div class="chat-container">
-            <div class="message">
-                <img class="avatar" src="https://placeimg.com/50/50/people?1">
-                <div class="datetime">23/03/2016 20:40</div>
-                <p>A message text</p>
+            <div class='message'>
+
+                <p id='chatmessages'></p>
             </div>
         </div>
+        
         <form class="send-message-form">
-            <input type="text" placeholder="Your message">
-            <button type="submit">Send</button>
+            <input id='name' type="text" placeholder="Username">
+            <input id='chatsubject' type="text" placeholder="Your message">
+            <button id="send" type="submit">Send</button>
         </form>
     </div>
 
@@ -61,15 +52,39 @@
     </footer>
 
     <script>
-        $(function () {
-            $('form').on('submit', function (event) {
+        var socket = io();
+
+        $(() => {
+            $("#send").click((event) => {
                 event.preventDefault();
-                var message = $('.message').first().clone();
-                message.find('p').text($('input').val());
-                message.prependTo('.chat-container');
-                $('input').val('');
-            });
-        });
+                var chatmessage = {
+                    name: $("#name").val(),
+                    chatsubject: $("#chatsubject").val()
+
+                }
+                postMessage(chatmessage)
+            })
+            getMessages()
+        })
+
+        socket.on('chatmessage', addMessage);
+
+
+        function addMessage(chatmessage) {
+            $('#chatmessages').append(
+                `<img class="avatar" src="https://placeimg.com/50/50/people?1"> <h4> ${chatmessage.name} </h4><div class="datetime">23/03/2016 20:40</div><p> ${chatmessage.chatsubject}</p>`
+            )
+        }
+
+        function getMessages() {
+            $.get('http://localhost:3000/chatMessages', (data) => {
+                data.forEach(addMessage);
+            })
+        }
+
+        function postMessage(chatmessage) {
+            $.post('http://localhost:3000/chatMessages', chatmessage)
+        }
     </script>
 
 </body>

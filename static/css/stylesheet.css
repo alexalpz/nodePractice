@@ -126,6 +126,12 @@ input[type=submit]:hover {
   direction: rtl;
 }
 
+
+input#chatsubject {
+  border:solid black 1px;
+
+}
+
 .message {
   border-bottom: solid 1px #ccc;
   padding: 20px;
@@ -151,5 +157,5 @@ input[type=submit]:hover {
 }
 
 button {
-  display: none;
+  float:right;
 }
