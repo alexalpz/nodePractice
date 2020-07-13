@@ -1,10 +1,14 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const app = express();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+const mongoose = require('mongoose');
+const routes = require('../routes');
 
-var mongoose = require('mongoose');
+app.set('view engine','ejs');
+app.set('views', path.join(__dirname, '../views'));
 
 
 app.use(express.static('../static'));
@@ -12,8 +16,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
 
+app.use('/', routes());
+
 var dbURL = "mongodb+srv://user:user@practicedb.pdomq.mongodb.net/practiceDB?retryWrites=true&w=majority";
-var chatURL = "mongodb+srv://user:user@chatmessages.lnikr.mongodb.net/chatMessages?retryWrites=true&w=majority";
 
 var Message = mongoose.model('message', {
     fname: String,
@@ -23,7 +28,7 @@ var Message = mongoose.model('message', {
 })
 
 var chatMessage = mongoose.model('chatmessage', {
-    name: String,
+    uname: String,
     chatsubject: String
 })
 
@@ -48,25 +53,17 @@ app.post('/messages',(req, res) =>{
 
 });
 
-
-
-app.post('/chatMessages',(req, res) =>{
-
-    var chatmessage = new chatMessage(req.body);
-
-    chatmessage.save((err) =>{
-        if(err)
-            sendStatus(500);
-       
-        io.emit('chatmessage', req.body);
-        res.sendStatus(200);
-    });
-
+app.get('/chatmessages',(req,res) =>{
+    chatMessage.find({}, (err, chatmessage) =>{
+        res.send(chatmessage);
+    })
+    
 });
 
-app.post('/chatMessages',(req, res) =>{
+app.post('/chatmessages',(req, res) =>{
 
     var chatmessage = new chatMessage(req.body);
+
     chatmessage.save((err) =>{
         if(err)
             sendStatus(500);
@@ -85,10 +82,6 @@ io.on('connection',(socket) =>{
 
 mongoose.connect(dbURL,{ useMongoClient: true }, (err) =>{
     console.log("Mongo DB Connection...", err);
-});
-
-mongoose.connect(chatURL,{ useMongoClient: true }, (err) =>{
-    console.log("Chat DB Connection...", err);
 });
 
 

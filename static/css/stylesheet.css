@@ -1,58 +1,81 @@
+/*Main*/
 html {
-  background-color: rgb(219, 216, 226);
-  padding: 5%;
+  background-color: rgb(0, 0, 0);
+  padding: 0 15%;
 }
 
 body {
-  border-radius: 10px;
+  border-radius: 5px;
+  background-color: rgb(17, 12, 12);
+  padding-bottom: 10px;
 }
 
-header .h1 {
-  color: rgb(192, 120, 164);
-  padding-top: 3%;
+header h1 {
+  color: rgb(255, 157, 0);
+  padding-top: 5%;
   font-family: 'Teko', sans-serif;
-  letter-spacing: 0.2em;
   text-align: center;
 }
 
+
+/*Index page specific */
 .img-thumbnail {
   width: 150px;
   float: right;
 }
 
+/*Reviews page */
+h3 {
+  color: rgb(151, 99, 1);
+  padding-left: 12px;
+}
 
 #messages {
-  color: rgb(155, 95, 120);
+  font: 20px;
+  color: rgb(151, 99, 1);
+  padding-left: 12px;
 }
 
-p,
-h1 {
-  color: rgb(153, 125, 151);
+h4 {
+  font: 12px;
 }
 
-* {
-  box-sizing: border-box;
+p {
+  color: rgb(255, 136, 0);
 }
 
+#chattext {
+  color: rgb(0, 255, 255);
+}
 
+#usermessage {
+  color: rgba(221, 141, 76, 0.356);
+  font: 12px;
+  padding-left: 20px;
+}
+
+/*Chat and reviews page*/
 
 input[type=text],
 select,
 textarea {
   width: 80%;
-  padding: 12px;
-  border: 1px solid rgb(175, 170, 170);
+  padding: 12px 20px;
+  border: 1px solid rgb(42, 26, 26);
   border-radius: 4px;
   resize: vertical;
+  background-color: rgb(59, 40, 40);
+  color: rgba(146, 163, 163, 0.609);
 }
 
 label {
-  padding: 12px 12px 12px 0;
+  color: rgba(170, 156, 133, 0.424);
+  padding: 12px 5px 12px 15px;
   display: inline-block;
 }
 
 input[type=submit] {
-  background-color: #4CAF50;
+  background-color: #000000;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -61,15 +84,15 @@ input[type=submit] {
   float: right;
 }
 
-input[type=submit]:hover {
-  background-color: #45a049;
+#send[type=submit]:hover {
+  transition: 0.5s;
+  background-color: #74747442;
 }
 
 
 
-.profilecontainer {
+.container {
   border-radius: 5px;
-  background-color: #f2f2f2;
   padding: 20px;
 
 }
@@ -86,37 +109,10 @@ input[type=submit]:hover {
   margin-top: 6px;
 }
 
-/* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
-}
-
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-
-  .col-25,
-  .col-75,
-  input[type=submit] {
-    width: 20%;
-    margin-top: 0;
-  }
-}
-
-
-/* Chat box css from codepen.io: https://codepen.io/muratcorlu/pen/KzmQEP?__cf_chl_jschl_tk__=8dc648f61d041cba5920610e8f946fde569f2eeb-1594519393-0-AatW3HXEXzEKNWjNuP_ueje3S8Iiea3UBEj3ZCNDN3mRCjdWrByo7CUSJn0Xpf593wzLyYI6oInQN_Z6t0yxKPjaguEK-bg-YCXsolnUKpuCgP3RXMycU83kqRXxXE3uYGSZjY6oCakiDhAoVUFhLS855gmLY1841V4JBPxIRt4npdbiMKp12LjRWGVNBMcbpBGhwH7DCwXKJJ53LEHcESxe71h7YIHvOhJqu4GSTrUdX_nvsRyCARix9G9Uox84fAYsFbOR469Q4jOj5aOcWP5CQ3WTrn9TPcz5AgxCOFsWhij2HR7FaRrKsTF4yduexMZwupf1662MjkmVYpdUJ6jonAnP2CZHpF1jfeA9h1xc */
-
-* {
-  box-sizing: border-box;
-}
-
-.container {
-  width: 400px;
-  margin: 0 auto;
-  border: solid 1px #ccc;
-  border-radius: 5px;
-  overflow: hidden;
 }
 
 .chat-container {
@@ -124,16 +120,35 @@ input[type=submit]:hover {
   overflow: auto;
   transform: rotate(180deg);
   direction: rtl;
+  border: solid 1px rgb(0, 0, 0);
+  border-radius: 5px;
+  background-color: rgb(31, 30, 30);
+
 }
 
+input#uname {
+  width: 20%;
+  padding: 7px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgb(0, 0, 0);
+  box-sizing: border-box;
+  background-color: rgb(23, 24, 23);
+}
 
 input#chatsubject {
-  border:solid black 1px;
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgb(0, 0, 0);
+  box-sizing: border-box;
+  background-color: rgb(23, 24, 23);
 
 }
 
 .message {
-  border-bottom: solid 1px #ccc;
+  border-bottom: solid 1px rgb(0, 0, 0);
   padding: 20px;
   transform: rotate(180deg);
   direction: ltr;
@@ -146,7 +161,7 @@ input#chatsubject {
 
 .datetime {
   float: right;
-  color: #999;
+  color: rgb(177, 164, 164);
 }
 
 .send-message-form input {
@@ -156,6 +171,17 @@ input#chatsubject {
   padding: 10px;
 }
 
-button {
-  float:right;
+#send {
+  background-color: rgb(73, 72, 72);
+  color: rgb(255, 235, 235);
 }
+
+
+button {
+  float: right;
+}
+
+
+
+
+/* Chat box from codepen.io: https://codepen.io/muratcorlu/pen/KzmQEP?__cf_chl_jschl_tk__=8dc648f61d041cba5920610e8f946fde569f2eeb-1594519393-0-AatW3HXEXzEKNWjNuP_ueje3S8Iiea3UBEj3ZCNDN3mRCjdWrByo7CUSJn0Xpf593wzLyYI6oInQN_Z6t0yxKPjaguEK-bg-YCXsolnUKpuCgP3RXMycU83kqRXxXE3uYGSZjY6oCakiDhAoVUFhLS855gmLY1841V4JBPxIRt4npdbiMKp12LjRWGVNBMcbpBGhwH7DCwXKJJ53LEHcESxe71h7YIHvOhJqu4GSTrUdX_nvsRyCARix9G9Uox84fAYsFbOR469Q4jOj5aOcWP5CQ3WTrn9TPcz5AgxCOFsWhij2HR7FaRrKsTF4yduexMZwupf1662MjkmVYpdUJ6jonAnP2CZHpF1jfeA9h1xc */
