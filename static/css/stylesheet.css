@@ -11,49 +11,97 @@ body {
 }
 
 header h1 {
-  color: rgb(255, 157, 0);
+  color: rgba(255, 157, 0, 0.767);
   padding-top: 5%;
   font-family: 'Teko', sans-serif;
   text-align: center;
 }
 
+h2 {
+  color: rgba(255, 161, 53, 0.377);
+  text-align: center;
+  font-size: 35px;
+  padding-top: 20px;
+}
+
+a {
+  color: rgb(255, 202, 153);
+}
+
+a:hover{
+  color: rgb(200, 122, 58);
+}
+
 
 /*Index page specific */
+
+.indextext {
+  color: rgba(255, 180, 95, 0.472);
+}
+
 .img-thumbnail {
   width: 150px;
   float: right;
 }
 
 /*Reviews page */
-h3 {
-  color: rgb(151, 99, 1);
-  padding-left: 12px;
+
+#reviewtext {
+  color: rgba(255, 218, 158, 0.418);
 }
 
-#messages {
-  font: 20px;
-  color: rgb(151, 99, 1);
-  padding-left: 12px;
+#reviewname {
+  color:rgba(255, 170, 34, 0.472);
 }
 
-h4 {
-  font: 12px;
-}
-
-p {
-  color: rgb(255, 136, 0);
-}
-
-#chattext {
-  color: rgb(0, 255, 255);
-}
-
-#usermessage {
-  color: rgba(221, 141, 76, 0.356);
+#reviewmessage {
+  color: rgba(255, 208, 170, 0.548);
   font: 12px;
   padding-left: 20px;
 }
 
+.font-weight-light {
+  padding-top: 20px;
+  color: rgba(253, 156, 45, 0.472);
+}
+
+/*Chat page */
+
+#chatuname {
+  color:#ff8f26;
+}
+
+#chatmessage{
+  color:rgb(228, 198, 159);
+}
+
+.chatstyle {
+  border-bottom: solid 1px rgb(0, 0, 0);
+  padding: 20px;
+  transform: rotate(180deg);
+  direction: ltr;
+}
+
+input#uname {
+  width: 20%;
+  padding: 7px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgb(0, 0, 0);
+  box-sizing: border-box;
+  background-color: rgb(23, 24, 23);
+}
+
+input#chatsubject {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgb(0, 0, 0);
+  box-sizing: border-box;
+  background-color: rgb(23, 24, 23);
+
+}
 /*Chat and reviews page*/
 
 input[type=text],
@@ -126,33 +174,7 @@ input[type=submit] {
 
 }
 
-input#uname {
-  width: 20%;
-  padding: 7px 15px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid rgb(0, 0, 0);
-  box-sizing: border-box;
-  background-color: rgb(23, 24, 23);
-}
 
-input#chatsubject {
-  width: 80%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid rgb(0, 0, 0);
-  box-sizing: border-box;
-  background-color: rgb(23, 24, 23);
-
-}
-
-.message {
-  border-bottom: solid 1px rgb(0, 0, 0);
-  padding: 20px;
-  transform: rotate(180deg);
-  direction: ltr;
-}
 
 .avatar {
   float: left;
@@ -182,6 +204,30 @@ button {
 }
 
 
+/*Miscellaneous*/
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+ 
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(95, 95, 94, 0.719); 
+  border-radius: 5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(61, 60, 60, 0.863); 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  transition: 5.3s;
+  background: #2f2f2f; 
+}
 
 
 /* Chat box from codepen.io: https://codepen.io/muratcorlu/pen/KzmQEP?__cf_chl_jschl_tk__=8dc648f61d041cba5920610e8f946fde569f2eeb-1594519393-0-AatW3HXEXzEKNWjNuP_ueje3S8Iiea3UBEj3ZCNDN3mRCjdWrByo7CUSJn0Xpf593wzLyYI6oInQN_Z6t0yxKPjaguEK-bg-YCXsolnUKpuCgP3RXMycU83kqRXxXE3uYGSZjY6oCakiDhAoVUFhLS855gmLY1841V4JBPxIRt4npdbiMKp12LjRWGVNBMcbpBGhwH7DCwXKJJ53LEHcESxe71h7YIHvOhJqu4GSTrUdX_nvsRyCARix9G9Uox84fAYsFbOR469Q4jOj5aOcWP5CQ3WTrn9TPcz5AgxCOFsWhij2HR7FaRrKsTF4yduexMZwupf1662MjkmVYpdUJ6jonAnP2CZHpF1jfeA9h1xc */

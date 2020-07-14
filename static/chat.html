@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
@@ -42,18 +42,18 @@
     </header>
     <section>
         <h2>Chatroom</h2>
+        <p id='reviewtext' style='text-align: center;'>Node - Express - MongoDB - EJS - socket.io - Mongoose </p>
     </section>
 
     <div class="container">
         <div class="chat-container">
-            <div class='message'>
-
+            <div class='chatstyle'>
                 <p id='chatmessages'></p>
             </div>
         </div>
 
         <form class="send-message-form">
-            <input id='name' type="text" placeholder="Username">
+            <input id='uname' type="text" placeholder="Username">
             <input id='chatsubject' type="text" placeholder="Your message">
             <button id="send" type="submit">Send</button>
         </form>
@@ -71,7 +71,7 @@
             $("#send").click((event) => {
                 event.preventDefault();
                 var chatmessage = {
-                    name: $("#name").val(),
+                    uname: $("#uname").val(),
                     chatsubject: $("#chatsubject").val()
 
                 }
@@ -85,7 +85,7 @@
 
         function addMessage(chatmessage) {
             $('#chatmessages').append(
-                `<img class="avatar" src="https://placeimg.com/50/50/people?1"> <h4> ${chatmessage.name} </h4><div class="datetime">23/03/2016 20:40</div><p> ${chatmessage.chatsubject}</p>`
+                `<img class="avatar" src="https://placeimg.com/50/50/people?1"> <h4 id='chatuname'> ${chatmessage.uname} </h4><div class="datetime">23/03/2016 20:40</div><p id='chatmessage'> ${chatmessage.chatsubject}</p>`
             )
         }
 

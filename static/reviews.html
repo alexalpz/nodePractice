@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
@@ -43,7 +43,7 @@
 
   <section>
     <h2>Feedback</h2>
-    <p style='text-align: center;'>Node - Express - MongoDB - EJS - socket.io - Mongoose </p>
+    <p id='reviewtext' style='text-align: center;'>Node - Express - MongoDB - EJS - socket.io - Mongoose </p>
   </section>
 
 
@@ -119,7 +119,7 @@
 
     function addMessage(message) {
       $('#messages').append(
-        `<h4> ${message.fname} ${message.lname} - (${message.country}) </h4> <p id='usermessage'> ${message.subject}</p>`
+        `<h4 id='reviewname'> ${message.fname} ${message.lname} - (${message.country}) </h4> <p id='reviewmessage'> ${message.subject}</p>`
       )
     }
 
