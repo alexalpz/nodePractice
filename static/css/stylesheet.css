@@ -1,20 +1,27 @@
 /*Main*/
 html {
   background-color: rgb(0, 0, 0);
-  padding: 0 15%;
+  padding: 0 20%;
+  height: 100%;
+
 }
 
 body {
   border-radius: 5px;
   background-color: rgb(17, 12, 12);
-  padding-bottom: 10px;
+  min-height: 100%;
+
+
 }
 
+
+
 header h1 {
-  color: rgba(255, 157, 0, 0.767);
-  padding-top: 5%;
-  font-family: 'Teko', sans-serif;
+  padding-top: 50px;
+  color: rgba(253, 186, 78, 0.767);
   text-align: center;
+  font-family: 'Do Hyeon', sans-serif;
+  letter-spacing: 8px;
 }
 
 h2 {
@@ -28,20 +35,37 @@ a {
   color: rgb(255, 202, 153);
 }
 
-a:hover{
+a:hover {
   color: rgb(200, 122, 58);
 }
+
 
 
 /*Index page specific */
 
 .indextext {
-  color: rgba(255, 180, 95, 0.472);
+  color: rgba(255, 218, 179, 0.589);
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  padding-bottom: 10px;
 }
 
-.img-thumbnail {
+.thumbnail {
+  border: solid rgba(255, 173, 21, 0.294) 1px;
   width: 150px;
+  margin-top: 70px;
   float: right;
+}
+
+
+.gif {
+  
+  display: block;
+  width:100%;
+  height: 380px;
+  opacity:0.4;
+  box-shadow: 0 0 8px 8px rgb(65, 65, 65) inset;
+
 }
 
 /*Reviews page */
@@ -51,7 +75,7 @@ a:hover{
 }
 
 #reviewname {
-  color:rgba(255, 170, 34, 0.472);
+  color: rgba(255, 170, 34, 0.472);
 }
 
 #reviewmessage {
@@ -68,11 +92,11 @@ a:hover{
 /*Chat page */
 
 #chatuname {
-  color:#ff8f26ca;
+  color: #ff8f26ca;
 }
 
-#chatmessage{
-  color:rgb(228, 198, 159);
+#chatmessage {
+  color: rgb(228, 198, 159);
 }
 
 .chatstyle {
@@ -102,6 +126,7 @@ input#chatsubject {
   background-color: rgb(23, 24, 23);
 
 }
+
 /*Chat and reviews page*/
 
 input[type=text],
@@ -208,25 +233,25 @@ button {
 /* width */
 ::-webkit-scrollbar {
   width: 15px;
- 
+
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px rgba(95, 95, 94, 0.719); 
+  box-shadow: inset 0 0 5px rgba(95, 95, 94, 0.719);
   border-radius: 5px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(61, 60, 60, 0.863); 
+  background: rgba(61, 60, 60, 0.863);
   border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   transition: 5.3s;
-  background: #2f2f2f; 
+  background: #2f2f2f;
 }
 
 
