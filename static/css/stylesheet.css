@@ -14,6 +14,10 @@ body {
 
 }
 
+header{
+  background-color: #070606;
+  box-shadow: 0 0 2px 2px rgb(0, 0, 0) inset;
+}
 
 
 header h1 {
@@ -22,6 +26,7 @@ header h1 {
   text-align: center;
   font-family: 'Do Hyeon', sans-serif;
   letter-spacing: 8px;
+  
 }
 
 h2 {
@@ -44,14 +49,15 @@ a:hover {
 /*Index page specific */
 
 .indextext {
-  color: rgba(255, 218, 179, 0.589);
+  color: #ffca9296;
   font-family: 'Sora', sans-serif;
   font-size: 18px;
   padding-bottom: 10px;
+
 }
 
 .thumbnail {
-  border: solid rgba(255, 173, 21, 0.294) 1px;
+  border: solid rgba(255, 173, 21, 0.294) 0.1px;
   width: 150px;
   margin-top: 70px;
   float: right;
@@ -65,6 +71,7 @@ a:hover {
   height: 380px;
   opacity:0.4;
   box-shadow: 0 0 8px 8px rgb(65, 65, 65) inset;
+  filter:sepia(50%);
 
 }
 
