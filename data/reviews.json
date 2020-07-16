@@ -3,7 +3,7 @@
     "fname": "Alexa",
     "lname": "Lopez",
     "country": "USA",
-    "review": "EJS review text"
+    "text": "This is my node project!"
 
 
 }]
