@@ -1,8 +1,9 @@
-{
+[{
 
     "fname": "Alexa",
     "lname": "Lopez",
     "country": "USA",
     "review": "EJS review text"
 
-}
+
+}]

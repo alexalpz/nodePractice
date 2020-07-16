@@ -8,7 +8,7 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const mongoose = require('mongoose');
-
+const _ = require('lodash');
 const IndexService = require('../services/IndexService');
 const ChatService = require('../services/ChatService');
 const ProfileService = require('../services/ProfileService');
@@ -19,7 +19,7 @@ const chatService = new ChatService('../data/chat.json');
 const profileService = new ProfileService('../data/profile.json');
 const reviewService = new ReviewService('../data/reviews.json');
 
-
+const port = 3000;
 
 const routes = require('../routes');
 
@@ -33,12 +33,26 @@ app.use(cookieSession({
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../views'));
 
+app.locals.siteName = 'Node EJS';
 
 app.use(express.static('../static'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+
+app.use( async (req, res,next) =>{
+    try{
+        const fnames = await reviewService.getData();
+        res.locals.reviewNames = fnames;
+        console.log(res.locals);
+        return next();
+    } catch(err){
+        return next(err);
+    }
+
+});
+
 
 app.use('/', routes({
     indexService,
@@ -120,5 +134,6 @@ mongoose.connect(dbURL, {
 
 
 var server = http.listen(3000, () => {
-    console.log('Server is listening on', server.address().port);
+    console.log('\nServer is listening on', server.address().port, `\n`);
 });
+
