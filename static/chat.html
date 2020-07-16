@@ -40,67 +40,68 @@
 
                 <a class="nav-item nav-link active" href='chat.html'>Chat</a>
             </div>
+            </nav>
     </header>
+    
     <section>
         <h2>Chatroom</h2>
         <p id='reviewtext' style='text-align: center;'>Node - Express - MongoDB - EJS - socket.io - Mongoose </p>
     </section>
-
+    
     <div class="container">
         <div class="chat-container">
             <div class='chatstyle'>
                 <p id='chatmessages'></p>
             </div>
         </div>
-
+    
         <form class="send-message-form">
             <input id='uname' type="text" placeholder="Username">
             <input id='chatsubject' type="text" placeholder="Your message">
             <button id="send" type="submit">Send</button>
         </form>
     </div>
-
-
+    
+    
     <footer>
         <br>
     </footer>
-
+    
     <script>
         var socket = io();
-
+    
         $(() => {
             $("#send").click((event) => {
                 event.preventDefault();
                 var chatmessage = {
                     uname: $("#uname").val(),
                     chatsubject: $("#chatsubject").val()
-
+    
                 }
                 postMessage(chatmessage)
             })
             getMessages()
         })
-
+    
         socket.on('chatmessage', addMessage);
-
-
+    
+    
         function addMessage(chatmessage) {
             $('#chatmessages').append(
                 `<img class="avatar" src="https://placeimg.com/50/50/people?1"> <h4 id='chatuname'> ${chatmessage.uname} </h4><div class="datetime">23/03/2016 20:40</div><p id='chatmessage'> ${chatmessage.chatsubject}</p>`
             )
         }
-
+    
         function getMessages() {
             $.get('http://localhost:3000/chatMessages', (data) => {
                 data.forEach(addMessage);
             })
         }
-
+    
         function postMessage(chatmessage) {
             $.post('http://localhost:3000/chatMessages', chatmessage)
         }
     </script>
-
 </body>
 
 </html>
