@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+const cookieSession = require('cookie-session');
+
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
@@ -20,6 +22,13 @@ const reviewService = new ReviewService('../data/reviews.json');
 
 
 const routes = require('../routes');
+
+app.set('trust proxy', 1);
+
+app.use(cookieSession({
+    name: 'session',
+    keys: ['rdjfidfja', 'gdrtdtdyty'],
+}));
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../views'));
