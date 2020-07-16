@@ -2,21 +2,21 @@ const express = require('express');
 
 const chatRoute = require('./chat');
 const reviewsRoute = require('./reviews');
-const peopleRoute = require('./people');
+const profileRoute = require('./profile');
 
 
 const router = express.Router();
 
-module.exports = () => {
+module.exports = params => {
     router.get('/', (req, res) => {
-        res.render('pages/index', {
-            pageTitle: 'EJS Test'
+        res.render('layout', {
+            template: 'index'
         });
     });
 
-    router.use('/chat', chatRoute());
-    router.use('/reviews', reviewsRoute());
-    router.use('/people', peopleRoute());
+    router.use('/chat', chatRoute(params));
+    router.use('/reviews', reviewsRoute(params));
+    router.use('/profile', profileRoute(params));
 
     return router;
 };

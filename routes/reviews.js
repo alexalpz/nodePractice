@@ -3,13 +3,18 @@ const router = express.Router();
 
 
 
-module.exports = () => {
-    router.get('/', (req, res) => {
-        return res.send('Reviews page');
+module.exports = params => {
+    const {
+        reviewService
+    } = params;
+
+    router.get('/', async (req, res) => {
+        const reviews = await reviewService.getList();
+        return res.json(reviews);
     });
 
     router.post('/', (req, res) => {
-        return res.send('Feedback form posted');
+        return res.send('Review posted');
     });
 
     return router;

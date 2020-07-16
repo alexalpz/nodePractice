@@ -1,11 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
+module.exports = params => {
+    const {
+        chatService
+    } = params;
 
-
-module.exports = () => {
-    router.get('/', (req, res) => {
-        return res.send('Chat page');
+    router.get('/', async (req, res) => {
+        const chat = await chatService.getList();
+        return res.json(chat);
     });
 
     router.post('/', (req, res) => {
